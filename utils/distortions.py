@@ -277,7 +277,7 @@ def jitter(x: torch.Tensor, amount: float) -> torch.Tensor:
 
 
 def non_eccentricity_patch(x: torch.Tensor, pnum: int) -> torch.Tensor:
-    y = x
+    y = x.detach().clone() # deep copy data to avoid changing the original tensor
     patch_size = [16, 16]
     radius = 16
     h_min = radius
